@@ -24,3 +24,4 @@ wss.on("connection", (socket, request) => {
   });
 }); //npm i --save-dev @types/node @types/ws
 console.log("WebSocket Server is live on ws://localhost:8080");
+// testing -> wscat -c ws://localhost:8080
