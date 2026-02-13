@@ -40,6 +40,15 @@
     const log = document.getElementById("log");
     const input = document.getElementById("message-input");
     //1. Initial the handshake
-    const socket = new WebSocket("ws://localhost:8080");
+    const socket = new WebSocket("ws://127.0.0.1:8080");
+    const appendLog = (label, message) => {
+      const entry = `${new Date().toLocaleTimeString()} ${label} ${message}\n`;
+      log.textContent = entry + log.textContent;
+    };
+    socket.addEventListener("open", () => {
+      statusEl.textContent = "CONNECTED: ws://localhost:8080";
+      statusEl.className = "status-on";
+      appendLog("[SYSTEM]", "Tunel Established");
+    });
   </script>
 </html>
